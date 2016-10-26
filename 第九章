@@ -1,0 +1,27 @@
+一.引导
+
+顺序容器挺重要的，在第三章讲完vector和string以及数组之后，这一章详细介绍了c++的容器
+在看这个笔记之前，你需要仔细地阅读 C++ primer 第九章，不然你会晕的
+默认学过vector 和 string
+二.deque 双端队列 
+
+既然是双端肯定支持push_back(), pop_back(), push_front(),pop_front()，而且在头尾位置插入删除很快
+不推荐insert()，emplace(),  erase()
+三.forward_list
+
+单向链表，从头部插入
+显然，只要是back类的都不支持，如push_back(), pop_back(), 不支持迭代器的减减 - - 运算
+有before_begin() 返回第一个迭代器之前的位置，有自己的成员函数
+insert_after() 在迭代器之后插入，返回插入的最后一个元素的迭代器
+emplace_after(p, args) 在p位置之后，创建一个元素并返回创建的新元素的位置
+W_RRL1A2(I06H$U61](`1%H.png
+输出 ：0 4 1 2 3
+erase_after(p)   erase_after(b,e)  删除p之后的，删除(b,e)迭代器之间的，返回被删元素的下一个位置
+链表的迭代器，只能加加 减减，不能加数字
+四. array
+
+array<int, 10> a1; //大小固定，初始化时就已经了解
+不支持 insert(), push_back(), push_front(), pop_back(), pop_front, erase(), emplace(), 
+可以用迭代器来改变array内的元素值
+arr.png
+
